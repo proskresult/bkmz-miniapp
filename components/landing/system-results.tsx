@@ -132,9 +132,7 @@ export function SystemResults() {
       <div className="mx-auto max-w-xl">
         <div className="mb-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white">
-            Как выглядит
-            <br />
-            настроенная система
+            Как выглядит настроенная система
           </h2>
 
           <p className="mt-3 text-base leading-7 text-muted-foreground">
@@ -172,9 +170,7 @@ export function SystemResults() {
 
         <div className="mb-6 text-center">
           <h3 className="text-3xl font-bold tracking-tight text-white">
-            Из чего состоит
-            <br />
-            система
+            Из чего состоит система
           </h3>
           <p className="mt-3 text-base leading-7 text-muted-foreground">
             Базовая структура, которую мы внедряем или передаём
