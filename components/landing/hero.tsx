@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Settings, MessageCircle } from "lucide-react"
 
 export function Hero() {
@@ -19,141 +18,105 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col px-4 py-10 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-      
-      {/* Glow effect */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/20 rounded-full blur-[120px] opacity-20" />
-      
-      <div className="relative z-10 max-w-3xl mx-auto w-full flex flex-col flex-1">
-        {/* Top section with photo and text */}
-        <div className="flex flex-col md:flex-row items-center gap-8 mb-10">
-          {/* Photo */}
-          <div className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10" />
-            <Image
-              src="/images/ilya-photo.jpg"
-              alt="Илья Проскуряков"
-              fill
-              className="object-cover rounded-2xl brightness-90"
-              priority
-            />
-          </div>
-          
-          {/* Text content */}
-          <div className="text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-              Илья Проскуряков
-            </h1>
-            
-            <h2 className="text-lg md:text-xl font-semibold text-primary mb-3 text-balance">
-              Системы управления бизнесом и рост через CRM и Telegram
-            </h2>
-            
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-pretty max-w-lg">
-              Помогаю выстроить систему, в которой видно деньги, точки роста и управляется выручка
-            </p>
-          </div>
-        </div>
-        
-        {/* Two main direction cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          {/* Card 1: amoCRM */}
-          <div 
-            className="group relative cursor-pointer"
-            onClick={scrollToCRM}
-          >
-            {/* Card glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <Card className="relative h-full border-border/50 bg-gradient-to-b from-secondary/80 to-secondary/40 backdrop-blur-sm overflow-hidden">
-              {/* Subtle pattern overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.08),transparent_50%)]" />
-              
-              <CardContent className="relative p-7">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span className="text-xs font-medium text-primary">Системы</span>
-                </div>
-                
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/10 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
-                  <Settings className="w-7 h-7 text-primary" />
-                </div>
-                
-                <h3 className="text-xl font-bold mb-3 tracking-tight">
-                  amoCRM и системный бизнес
-                </h3>
-                
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                  Настройка и внедрение amoCRM. Автоматизация процессов, контроль продаж и прозрачная система управления.
-                </p>
-                
-                <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
-                  <span>Внедрить CRM</span>
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          
-          {/* Card 2: Telegram */}
-          <div 
-            className="group relative cursor-pointer"
-            onClick={scrollToTelegram}
-          >
-            {/* Card glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-sky-500/20 to-blue-500/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <Card className="relative h-full border-border/50 bg-gradient-to-b from-secondary/80 to-secondary/40 backdrop-blur-sm overflow-hidden">
-              {/* Subtle pattern overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(56,189,248,0.08),transparent_50%)]" />
-              
-              <CardContent className="relative p-7">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 mb-5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-                  <span className="text-xs font-medium text-sky-400">Трафик</span>
-                </div>
-                
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-sky-500/5 border border-sky-500/10 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
-                  <MessageCircle className="w-7 h-7 text-sky-400" />
-                </div>
-                
-                <h3 className="text-xl font-bold mb-3 tracking-tight">
-                  Telegram-бот для привлечения
-                </h3>
-                
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                  Мой инструмент для получения заявок из Telegram. Связки, которые дают поток клиентов.
-                </p>
-                
-                <div className="flex items-center gap-2 text-sky-400 font-semibold group-hover:gap-3 transition-all">
-                  <span>Получить клиентов</span>
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-        
-        {/* Secondary CTA */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground mb-4">
-            Не уверены, что нужно? Получите бесплатную консультацию
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
+
+      {/* 🔥 ФОТО ФОНОМ */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/ilya-photo.jpg"
+          alt="Илья Проскуряков"
+          fill
+          className="object-cover object-top opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
+
+      {/* контент */}
+      <div className="relative z-10 px-4 pt-16 pb-10 max-w-xl mx-auto w-full">
+
+        {/* Заголовок */}
+        <div className="text-center mb-10">
+          <h1 className="text-3xl font-bold mb-3">
+            Илья Проскуряков
+          </h1>
+
+          <h2 className="text-lg font-semibold text-primary mb-3">
+            Системы управления бизнесом  
+            и рост через CRM и Telegram
+          </h2>
+
+          <p className="text-sm text-muted-foreground">
+            Видно деньги, точки роста и управляется выручка
           </p>
-          <Button 
-            size="lg" 
-            className="h-14 px-8 text-base font-semibold rounded-xl gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
-            onClick={scrollToForm}
-          >
-            Получить разбор
-            <ArrowRight className="w-5 h-5" />
-          </Button>
         </div>
+
+        {/* 🔥 КАРТОЧКИ */}
+        <div className="flex flex-col gap-4 mb-10">
+
+          {/* CRM */}
+          <div
+            onClick={scrollToCRM}
+            className="p-5 rounded-2xl bg-[#0f172a]/80 border border-green-500/20 backdrop-blur cursor-pointer active:scale-[0.98] transition"
+          >
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center">
+                <Settings className="w-7 h-7 text-green-400" />
+              </div>
+              <div>
+                <div className="text-xs text-green-400 mb-1">Системы</div>
+                <div className="text-lg font-bold">
+                  amoCRM и управление
+                </div>
+              </div>
+            </div>
+
+            <p className="text-sm text-muted-foreground mb-3">
+              Внедрение CRM, автоматизация и контроль продаж
+            </p>
+
+            <div className="text-green-400 font-semibold flex items-center gap-2">
+              Внедрить CRM <ArrowRight className="w-4 h-4" />
+            </div>
+          </div>
+
+          {/* Telegram */}
+          <div
+            onClick={scrollToTelegram}
+            className="p-5 rounded-2xl bg-[#0f172a]/80 border border-sky-500/20 backdrop-blur cursor-pointer active:scale-[0.98] transition"
+          >
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-14 h-14 rounded-xl bg-sky-500/20 flex items-center justify-center">
+                <MessageCircle className="w-7 h-7 text-sky-400" />
+              </div>
+              <div>
+                <div className="text-xs text-sky-400 mb-1">Трафик</div>
+                <div className="text-lg font-bold">
+                  Telegram-бот
+                </div>
+              </div>
+            </div>
+
+            <p className="text-sm text-muted-foreground mb-3">
+              Поток клиентов из Telegram через готовые связки
+            </p>
+
+            <div className="text-sky-400 font-semibold flex items-center gap-2">
+              Получить клиентов <ArrowRight className="w-4 h-4" />
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <Button
+          size="lg"
+          className="w-full h-14 text-base font-semibold rounded-xl"
+          onClick={scrollToForm}
+        >
+          Получить разбор
+          <ArrowRight className="w-5 h-5 ml-2" />
+        </Button>
+
       </div>
     </section>
   )
