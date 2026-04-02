@@ -18,30 +18,29 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
+    <section className="min-h-screen px-4 pt-6 pb-10 flex flex-col">
 
-      {/* 🔥 ФОТО ФОНОМ */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/ilya-photo.jpg"
-          alt="Илья Проскуряков"
-          fill
-          className="object-cover object-top opacity-30"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
+      <div className="max-w-xl mx-auto w-full">
 
-      {/* контент */}
-      <div className="relative z-10 px-4 pt-16 pb-10 max-w-xl mx-auto w-full">
+        {/* 🔥 БОЛЬШОЕ ФОТО */}
+        <div className="relative w-full h-[42vh] mb-6 rounded-3xl overflow-hidden">
+          <Image
+            src="/images/ilya-photo.jpg"
+            alt="Илья Проскуряков"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        </div>
 
-        {/* Заголовок */}
-        <div className="text-center mb-10">
+        {/* ТЕКСТ */}
+        <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-3">
             Илья Проскуряков
           </h1>
 
-          <h2 className="text-lg font-semibold text-primary mb-3">
+          <h2 className="text-lg font-semibold text-primary mb-3 leading-snug">
             Системы управления бизнесом  
             и рост через CRM и Telegram
           </h2>
@@ -52,17 +51,18 @@ export function Hero() {
         </div>
 
         {/* 🔥 КАРТОЧКИ */}
-        <div className="flex flex-col gap-4 mb-10">
+        <div className="flex flex-col gap-4 mb-8">
 
           {/* CRM */}
           <div
             onClick={scrollToCRM}
-            className="p-5 rounded-2xl bg-[#0f172a]/80 border border-green-500/20 backdrop-blur cursor-pointer active:scale-[0.98] transition"
+            className="p-5 rounded-2xl bg-[#0f172a] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.08)] cursor-pointer active:scale-[0.98] transition"
           >
             <div className="flex items-center gap-4 mb-3">
               <div className="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center">
                 <Settings className="w-7 h-7 text-green-400" />
               </div>
+
               <div>
                 <div className="text-xs text-green-400 mb-1">Системы</div>
                 <div className="text-lg font-bold">
@@ -72,7 +72,7 @@ export function Hero() {
             </div>
 
             <p className="text-sm text-muted-foreground mb-3">
-              Внедрение CRM, автоматизация и контроль продаж
+              Внедрение CRM, автоматизация процессов и контроль продаж
             </p>
 
             <div className="text-green-400 font-semibold flex items-center gap-2">
@@ -83,22 +83,23 @@ export function Hero() {
           {/* Telegram */}
           <div
             onClick={scrollToTelegram}
-            className="p-5 rounded-2xl bg-[#0f172a]/80 border border-sky-500/20 backdrop-blur cursor-pointer active:scale-[0.98] transition"
+            className="p-5 rounded-2xl bg-[#0f172a] border border-sky-500/20 shadow-[0_0_20px_rgba(56,189,248,0.08)] cursor-pointer active:scale-[0.98] transition"
           >
             <div className="flex items-center gap-4 mb-3">
               <div className="w-14 h-14 rounded-xl bg-sky-500/20 flex items-center justify-center">
                 <MessageCircle className="w-7 h-7 text-sky-400" />
               </div>
+
               <div>
                 <div className="text-xs text-sky-400 mb-1">Трафик</div>
                 <div className="text-lg font-bold">
-                  Telegram-бот
+                  Telegram-бот для заявок
                 </div>
               </div>
             </div>
 
             <p className="text-sm text-muted-foreground mb-3">
-              Поток клиентов из Telegram через готовые связки
+              Поток клиентов из Telegram через рабочие связки
             </p>
 
             <div className="text-sky-400 font-semibold flex items-center gap-2">
