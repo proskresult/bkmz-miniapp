@@ -118,7 +118,7 @@ const topLevelItems = [
     icon: Target,
   },
   {
-    title: "Повторные продажи",
+    title: "Как вернуть клиентов",
     text: "Есть система возврата клиентов",
     icon: RefreshCcw,
   },
@@ -132,11 +132,11 @@ export function SystemResults() {
       <div className="mx-auto max-w-xl">
         <div className="mb-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white">
-            Как выглядит настроенная система
+            Эффективная CRM ответит на вопросы:
           </h2>
 
           <p className="mt-3 text-base leading-7 text-muted-foreground">
-            Конкретные элементы, которые дают контроль, аналитику и рост
+            Показывает, где теряются деньги и что реально влияет на рост
           </p>
         </div>
 
