@@ -10,6 +10,10 @@ import {
   Zap,
   Shield,
   Check,
+  TrendingDown,
+  TrendingUp,
+  Target,
+  RefreshCcw,
 } from "lucide-react"
 
 const systemModules = [
@@ -97,6 +101,29 @@ const systemModules = [
   },
 ]
 
+const topLevelItems = [
+  {
+    title: "Где теряются деньги",
+    text: "Видны слабые места воронки",
+    icon: TrendingDown,
+  },
+  {
+    title: "Какие каналы дают рост",
+    text: "Понятно, что приносит выручку",
+    icon: TrendingUp,
+  },
+  {
+    title: "Что влияет на результат",
+    text: "Решения принимаются на цифрах",
+    icon: Target,
+  },
+  {
+    title: "Повторные продажи",
+    text: "Есть система возврата клиентов",
+    icon: RefreshCcw,
+  },
+]
+
 export function SystemResults() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
@@ -104,10 +131,6 @@ export function SystemResults() {
     <section id="system-results" className="px-4 py-14">
       <div className="mx-auto max-w-xl">
         <div className="mb-6 text-center">
-          <div className="mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            Система, которую мы выстраиваем
-          </div>
-
           <h2 className="text-3xl font-bold tracking-tight text-white">
             Как выглядит
             <br />
@@ -119,74 +142,39 @@ export function SystemResults() {
           </p>
         </div>
 
-        <div className="mb-6 space-y-3">
-          <div className="rounded-2xl border border-white/10 bg-[#070b12] px-4 py-4">
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
-                <Globe className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <div className="text-lg font-semibold text-white">Где теряются деньги</div>
-                <div className="text-base text-muted-foreground">
-                  Видны слабые места воронки
+        <div className="mb-12 space-y-4">
+          {topLevelItems.map((item) => {
+            const Icon = item.icon
+
+            return (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-[#070b12] px-5 py-5"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/15 bg-primary/8">
+                    <Icon className="h-6 w-6 text-primary" />
+                  </div>
+
+                  <div>
+                    <div className="text-2xl font-semibold leading-tight text-white">
+                      {item.title}
+                    </div>
+                    <div className="mt-1 text-base leading-7 text-muted-foreground">
+                      {item.text}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-[#070b12] px-4 py-4">
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
-                <BarChart3 className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <div className="text-lg font-semibold text-white">Какие каналы дают рост</div>
-                <div className="text-base text-muted-foreground">
-                  Понятно, что приносит выручку
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-[#070b12] px-4 py-4">
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
-                <Zap className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <div className="text-lg font-semibold text-white">Что влияет на результат</div>
-                <div className="text-base text-muted-foreground">
-                  Решения принимаются на цифрах
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-[#070b12] px-4 py-4">
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
-                <HeartHandshake className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <div className="text-lg font-semibold text-white">Повторные продажи</div>
-                <div className="text-base text-muted-foreground">
-                  Есть система возврата клиентов
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mb-12 rounded-2xl border border-primary/15 bg-primary/5 px-5 py-5 text-center">
-          <div className="text-base text-muted-foreground">Это верхний уровень.</div>
-          <div className="mt-1 text-xl font-semibold text-white">
-            Ниже — из чего именно состоит эта система
-          </div>
+            )
+          })}
         </div>
 
         <div className="mb-6 text-center">
           <h3 className="text-3xl font-bold tracking-tight text-white">
-            Из чего состоит система
+            Из чего состоит
+            <br />
+            система
           </h3>
           <p className="mt-3 text-base leading-7 text-muted-foreground">
             Базовая структура, которую мы внедряем или передаём
