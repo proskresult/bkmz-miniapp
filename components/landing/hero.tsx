@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Settings, MessageCircle } from "lucide-react"
+import { ArrowRight, Settings, MessageCircle, BookOpen, CalendarDays } from "lucide-react"
 
 export function Hero() {
   const scrollToForm = () => {
@@ -17,10 +17,17 @@ export function Hero() {
     document.getElementById("telegram-channels")?.scrollIntoView({ behavior: "smooth" })
   }
 
+  const scrollToUseful = () => {
+    document.getElementById("telegram-channels")?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const scrollToConsultation = () => {
+    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
     <section className="px-4 pt-5 pb-8">
       <div className="max-w-xl mx-auto w-full">
-        {/* Фото */}
         <div className="relative w-full h-[32vh] min-h-[260px] max-h-[360px] mb-5 rounded-[28px] overflow-hidden border border-white/10">
           <Image
             src="/images/ilya-photo.jpg"
@@ -32,7 +39,6 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
         </div>
 
-        {/* Текст */}
         <div className="text-center mb-6">
           <h1 className="text-3xl font-bold tracking-tight mb-3">
             Илья Проскуряков
@@ -47,9 +53,7 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Направления в строку */}
         <div className="grid grid-cols-2 gap-3 mb-6">
-          {/* CRM */}
           <button
             type="button"
             onClick={scrollToCRM}
@@ -74,7 +78,6 @@ export function Hero() {
             </div>
           </button>
 
-          {/* Telegram */}
           <button
             type="button"
             onClick={scrollToTelegram}
@@ -98,9 +101,56 @@ export function Hero() {
               Получить <ArrowRight className="w-4 h-4" />
             </div>
           </button>
+
+          <button
+            type="button"
+            onClick={scrollToUseful}
+            className="text-left rounded-[24px] border border-amber-500/20 bg-[#0d1630] p-4 shadow-[0_0_24px_rgba(245,158,11,0.06)] active:scale-[0.98] transition"
+          >
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/15 flex items-center justify-center mb-3">
+              <BookOpen className="w-6 h-6 text-amber-400" />
+            </div>
+
+            <div className="text-xs text-amber-400 mb-2">Польза</div>
+
+            <div className="text-base font-bold leading-snug mb-2">
+              Материалы
+            </div>
+
+            <p className="text-xs leading-5 text-muted-foreground mb-3">
+              Полезные разборы, фишки и практические материалы
+            </p>
+
+            <div className="text-sm font-semibold text-amber-400 flex items-center gap-1">
+              Открыть <ArrowRight className="w-4 h-4" />
+            </div>
+          </button>
+
+          <button
+            type="button"
+            onClick={scrollToConsultation}
+            className="text-left rounded-[24px] border border-violet-500/20 bg-[#0d1630] p-4 shadow-[0_0_24px_rgba(168,85,247,0.06)] active:scale-[0.98] transition"
+          >
+            <div className="w-12 h-12 rounded-2xl bg-violet-500/15 flex items-center justify-center mb-3">
+              <CalendarDays className="w-6 h-6 text-violet-400" />
+            </div>
+
+            <div className="text-xs text-violet-400 mb-2">Консультация</div>
+
+            <div className="text-base font-bold leading-snug mb-2">
+              Записаться
+            </div>
+
+            <p className="text-xs leading-5 text-muted-foreground mb-3">
+              Разберём задачу и поймём, что даст результат быстрее
+            </p>
+
+            <div className="text-sm font-semibold text-violet-400 flex items-center gap-1">
+              Выбрать <ArrowRight className="w-4 h-4" />
+            </div>
+          </button>
         </div>
 
-        {/* CTA */}
         <Button
           size="lg"
           className="w-full h-14 text-base font-semibold rounded-2xl"
