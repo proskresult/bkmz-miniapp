@@ -1,19 +1,38 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Settings, MessageCircle, BookOpen, Calendar } from "lucide-react"
 
 export function Hero() {
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY * 0.2) // скорость параллакса
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <section className="px-4 pt-6 pb-10">
       <div className="mx-auto max-w-2xl text-center">
-        {/* Фото */}
-        <div className="overflow-hidden rounded-3xl border border-white/10">
+        
+        {/* Фото с параллаксом */}
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 h-[320px]">
           <img
             src="/images/ilya-photo.jpg"
             alt="Илья Проскуряков"
-            className="block w-full rounded-3xl object-cover"
+            style={{
+              transform: `translateY(${offset}px) scale(1.1)`
+            }}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-75"
           />
+
+          {/* затемнение снизу (чтобы текст читался лучше) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
 
         {/* Заголовок */}
@@ -31,7 +50,7 @@ export function Hero() {
 
         {/* Карточки */}
         <div className="mt-6 grid grid-cols-2 gap-4">
-          <Link href="/amocrm" className="block">
+          <Link href="/amocrm">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-green-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-green-500/10 p-2">
                 <Settings className="h-5 w-5 text-green-400" />
@@ -45,7 +64,7 @@ export function Hero() {
             </div>
           </Link>
 
-          <Link href="/telegram-bot" className="block">
+          <Link href="/telegram-bot">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-blue-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-blue-500/10 p-2">
                 <MessageCircle className="h-5 w-5 text-blue-400" />
@@ -59,7 +78,7 @@ export function Hero() {
             </div>
           </Link>
 
-          <Link href="/useful" className="block">
+          <Link href="/useful">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-yellow-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-yellow-500/10 p-2">
                 <BookOpen className="h-5 w-5 text-yellow-400" />
@@ -73,7 +92,7 @@ export function Hero() {
             </div>
           </Link>
 
-          <Link href="/consultation" className="block">
+          <Link href="/consultation">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-purple-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-purple-500/10 p-2">
                 <Calendar className="h-5 w-5 text-purple-400" />
