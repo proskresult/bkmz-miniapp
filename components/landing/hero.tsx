@@ -1,164 +1,105 @@
 "use client"
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Settings, MessageCircle, BookOpen, CalendarDays } from "lucide-react"
+import Link from "next/link"
+import { Settings, MessageCircle, BookOpen, Calendar } from "lucide-react"
 
 export function Hero() {
-  const scrollToForm = () => {
-    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const scrollToCRM = () => {
-    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const scrollToTelegram = () => {
-    document.getElementById("telegram-channels")?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const scrollToUseful = () => {
-    document.getElementById("telegram-channels")?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const scrollToConsultation = () => {
-    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
-    <section className="px-4 pt-5 pb-8">
-      <div className="max-w-xl mx-auto w-full">
-        <div className="relative w-full h-[32vh] min-h-[260px] max-h-[360px] mb-5 rounded-[28px] overflow-hidden border border-white/10">
-          <Image
-            src="/images/ilya-photo.jpg"
+    <section className="px-4 pt-6 pb-10">
+      <div className="mx-auto max-w-2xl text-center">
+        {/* Фото */}
+        <div className="overflow-hidden rounded-3xl">
+          <img
+            src="/hero.jpg"
             alt="Илья Проскуряков"
-            fill
-            priority
-            className="object-cover object-[center_22%]"
+            className="w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
         </div>
 
-        <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold tracking-tight mb-3">
-            Илья Проскуряков
-          </h1>
+        {/* Текст */}
+        <h1 className="mt-6 text-2xl font-bold text-white md:text-3xl">
+          Илья Проскуряков
+        </h1>
 
-          <h2 className="text-lg font-semibold text-primary leading-snug mb-3">
-            Системы управления бизнесом и рост через CRM и Telegram
-          </h2>
+        <p className="mt-2 text-base font-medium text-green-500">
+          Системы управления бизнесом и рост через CRM и Telegram
+        </p>
 
-          <p className="text-sm text-muted-foreground max-w-md mx-auto">
-            Видно деньги, точки роста и управляется выручка
-          </p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Видно деньги, точки роста и управляется выручка
+        </p>
+
+        {/* Карточки */}
+        <div className="mt-6 grid grid-cols-2 gap-4">
+          
+          {/* CRM */}
+          <Link href="/amocrm">
+            <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-green-500/40">
+              <div className="mb-3 inline-flex rounded-xl bg-green-500/10 p-2">
+                <Settings className="h-5 w-5 text-green-400" />
+              </div>
+              <p className="text-xs text-green-400">Системы</p>
+              <p className="mt-1 font-semibold text-white">amoCRM</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                CRM, автоматизация и контроль продаж
+              </p>
+              <p className="mt-2 text-sm text-green-400">Внедрить →</p>
+            </div>
+          </Link>
+
+          {/* Telegram */}
+          <Link href="/telegram-bot">
+            <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-blue-500/40">
+              <div className="mb-3 inline-flex rounded-xl bg-blue-500/10 p-2">
+                <MessageCircle className="h-5 w-5 text-blue-400" />
+              </div>
+              <p className="text-xs text-blue-400">Трафик</p>
+              <p className="mt-1 font-semibold text-white">Telegram-бот</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Клиенты из Telegram через рабочие связки
+              </p>
+              <p className="mt-2 text-sm text-blue-400">Получить →</p>
+            </div>
+          </Link>
+
+          {/* Материалы */}
+          <Link href="/useful">
+            <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-yellow-500/40">
+              <div className="mb-3 inline-flex rounded-xl bg-yellow-500/10 p-2">
+                <BookOpen className="h-5 w-5 text-yellow-400" />
+              </div>
+              <p className="text-xs text-yellow-400">Польза</p>
+              <p className="mt-1 font-semibold text-white">Материалы</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Разборы, фишки и практические материалы
+              </p>
+              <p className="mt-2 text-sm text-yellow-400">Открыть →</p>
+            </div>
+          </Link>
+
+          {/* Консультация */}
+          <Link href="/consultation">
+            <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-purple-500/40">
+              <div className="mb-3 inline-flex rounded-xl bg-purple-500/10 p-2">
+                <Calendar className="h-5 w-5 text-purple-400" />
+              </div>
+              <p className="text-xs text-purple-400">Консультация</p>
+              <p className="mt-1 font-semibold text-white">Записаться</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Разберём задачу и найдём решение
+              </p>
+              <p className="mt-2 text-sm text-purple-400">Выбрать →</p>
+            </div>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          <button
-            type="button"
-            onClick={scrollToCRM}
-            className="text-left rounded-[24px] border border-emerald-500/20 bg-[#0d1630] p-4 shadow-[0_0_24px_rgba(34,197,94,0.06)] active:scale-[0.98] transition"
-          >
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 flex items-center justify-center mb-3">
-              <Settings className="w-6 h-6 text-emerald-400" />
-            </div>
-
-            <div className="text-xs text-emerald-400 mb-2">Системы</div>
-
-            <div className="text-base font-bold leading-snug mb-2">
-              amoCRM
-            </div>
-
-            <p className="text-xs leading-5 text-muted-foreground mb-3">
-              CRM, автоматизация и контроль продаж
-            </p>
-
-            <div className="text-sm font-semibold text-emerald-400 flex items-center gap-1">
-              Внедрить <ArrowRight className="w-4 h-4" />
-            </div>
-          </button>
-
-          <button
-            type="button"
-            onClick={scrollToTelegram}
-            className="text-left rounded-[24px] border border-sky-500/20 bg-[#0d1630] p-4 shadow-[0_0_24px_rgba(56,189,248,0.06)] active:scale-[0.98] transition"
-          >
-            <div className="w-12 h-12 rounded-2xl bg-sky-500/15 flex items-center justify-center mb-3">
-              <MessageCircle className="w-6 h-6 text-sky-400" />
-            </div>
-
-            <div className="text-xs text-sky-400 mb-2">Трафик</div>
-
-            <div className="text-base font-bold leading-snug mb-2">
-              Telegram-бот
-            </div>
-
-            <p className="text-xs leading-5 text-muted-foreground mb-3">
-              Клиенты из Telegram через рабочие связки
-            </p>
-
-            <div className="text-sm font-semibold text-sky-400 flex items-center gap-1">
-              Получить <ArrowRight className="w-4 h-4" />
-            </div>
-          </button>
-
-          <button
-            type="button"
-            onClick={scrollToUseful}
-            className="text-left rounded-[24px] border border-amber-500/20 bg-[#0d1630] p-4 shadow-[0_0_24px_rgba(245,158,11,0.06)] active:scale-[0.98] transition"
-          >
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/15 flex items-center justify-center mb-3">
-              <BookOpen className="w-6 h-6 text-amber-400" />
-            </div>
-
-            <div className="text-xs text-amber-400 mb-2">Польза</div>
-
-            <div className="text-base font-bold leading-snug mb-2">
-              Материалы
-            </div>
-
-            <p className="text-xs leading-5 text-muted-foreground mb-3">
-              Полезные разборы, фишки и практические материалы
-            </p>
-
-            <div className="text-sm font-semibold text-amber-400 flex items-center gap-1">
-              Открыть <ArrowRight className="w-4 h-4" />
-            </div>
-          </button>
-
-          <button
-            type="button"
-            onClick={scrollToConsultation}
-            className="text-left rounded-[24px] border border-violet-500/20 bg-[#0d1630] p-4 shadow-[0_0_24px_rgba(168,85,247,0.06)] active:scale-[0.98] transition"
-          >
-            <div className="w-12 h-12 rounded-2xl bg-violet-500/15 flex items-center justify-center mb-3">
-              <CalendarDays className="w-6 h-6 text-violet-400" />
-            </div>
-
-            <div className="text-xs text-violet-400 mb-2">Консультация</div>
-
-            <div className="text-base font-bold leading-snug mb-2">
-              Записаться
-            </div>
-
-            <p className="text-xs leading-5 text-muted-foreground mb-3">
-              Разберём задачу и поймём, что даст результат быстрее
-            </p>
-
-            <div className="text-sm font-semibold text-violet-400 flex items-center gap-1">
-              Выбрать <ArrowRight className="w-4 h-4" />
-            </div>
-          </button>
-        </div>
-
-        <Button
-          size="lg"
-          className="w-full h-14 text-base font-semibold rounded-2xl"
-          onClick={scrollToForm}
+        {/* CTA */}
+        <a
+          href="/consultation"
+          className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-green-500 px-6 py-4 text-base font-semibold text-black"
         >
-          Получить разбор
-          <ArrowRight className="w-5 h-5 ml-2" />
-        </Button>
+          Получить разбор →
+        </a>
       </div>
     </section>
   )
