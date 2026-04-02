@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Settings, MessageCircle, BookOpen, Calendar } from "lucide-react"
 
 export function Hero() {
@@ -8,11 +9,14 @@ export function Hero() {
     <section className="px-4 pt-6 pb-10">
       <div className="mx-auto max-w-2xl text-center">
         {/* Фото */}
-        <div className="overflow-hidden rounded-3xl">
-          <img
-            src="/hero.jpg"
+        <div className="relative overflow-hidden rounded-3xl">
+          <Image
+            src="/images/ilya-photo.jpg"
             alt="Илья Проскуряков"
-            className="w-full object-cover"
+            width={1200}
+            height={900}
+            priority
+            className="h-auto w-full object-cover"
           />
         </div>
 
@@ -31,9 +35,7 @@ export function Hero() {
 
         {/* Карточки */}
         <div className="mt-6 grid grid-cols-2 gap-4">
-          
-          {/* CRM */}
-          <Link href="/amocrm">
+          <Link href="/amocrm" className="block">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-green-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-green-500/10 p-2">
                 <Settings className="h-5 w-5 text-green-400" />
@@ -47,8 +49,7 @@ export function Hero() {
             </div>
           </Link>
 
-          {/* Telegram */}
-          <Link href="/telegram-bot">
+          <Link href="/telegram-bot" className="block">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-blue-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-blue-500/10 p-2">
                 <MessageCircle className="h-5 w-5 text-blue-400" />
@@ -62,8 +63,7 @@ export function Hero() {
             </div>
           </Link>
 
-          {/* Материалы */}
-          <Link href="/useful">
+          <Link href="/useful" className="block">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-yellow-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-yellow-500/10 p-2">
                 <BookOpen className="h-5 w-5 text-yellow-400" />
@@ -77,8 +77,7 @@ export function Hero() {
             </div>
           </Link>
 
-          {/* Консультация */}
-          <Link href="/consultation">
+          <Link href="/consultation" className="block">
             <div className="rounded-2xl border border-white/10 bg-[#0B1730] p-4 text-left transition hover:scale-[1.02] hover:border-purple-500/40">
               <div className="mb-3 inline-flex rounded-xl bg-purple-500/10 p-2">
                 <Calendar className="h-5 w-5 text-purple-400" />
@@ -87,20 +86,3 @@ export function Hero() {
               <p className="mt-1 font-semibold text-white">Записаться</p>
               <p className="mt-1 text-xs text-muted-foreground">
                 Разберём задачу и найдём решение
-              </p>
-              <p className="mt-2 text-sm text-purple-400">Выбрать →</p>
-            </div>
-          </Link>
-        </div>
-
-        {/* CTA */}
-        <a
-          href="/consultation"
-          className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-green-500 px-6 py-4 text-base font-semibold text-black"
-        >
-          Получить разбор →
-        </a>
-      </div>
-    </section>
-  )
-}
