@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { Settings, MessageCircle, BookOpen, Calendar } from "lucide-react"
 
 export function Hero() {
@@ -9,18 +8,15 @@ export function Hero() {
     <section className="px-4 pt-6 pb-10">
       <div className="mx-auto max-w-2xl text-center">
         {/* Фото */}
-        <div className="relative overflow-hidden rounded-3xl">
-          <Image
+        <div className="overflow-hidden rounded-3xl border border-white/10">
+          <img
             src="/images/ilya-photo.jpg"
             alt="Илья Проскуряков"
-            width={1200}
-            height={900}
-            priority
-            className="h-auto w-full object-cover"
+            className="block w-full rounded-3xl object-cover"
           />
         </div>
 
-        {/* Текст */}
+        {/* Заголовок */}
         <h1 className="mt-6 text-2xl font-bold text-white md:text-3xl">
           Илья Проскуряков
         </h1>
@@ -86,3 +82,20 @@ export function Hero() {
               <p className="mt-1 font-semibold text-white">Записаться</p>
               <p className="mt-1 text-xs text-muted-foreground">
                 Разберём задачу и найдём решение
+              </p>
+              <p className="mt-2 text-sm text-purple-400">Выбрать →</p>
+            </div>
+          </Link>
+        </div>
+
+        {/* CTA */}
+        <Link
+          href="/consultation"
+          className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-green-500 px-6 py-4 text-base font-semibold text-black"
+        >
+          Получить разбор →
+        </Link>
+      </div>
+    </section>
+  )
+}
